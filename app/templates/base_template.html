@@ -91,6 +91,21 @@ chico sundermann">
                     </li>
 
                 {% else %}
+                    <li class="sidebar-header">
+                        Notepads
+                    </li>
+                
+                    <li class="sidebar-item {{ 'active' if request.endpoint == 'notepad.create_notepad' else '' }}">
+                        <a class="sidebar-link" href="{{ url_for('notepad.create_notepad') }}">
+                            <i class="align-middle" data-feather="book"></i> <span class="align-middle">Create</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ 'active' if request.endpoint == 'notepad.index' else '' }}">
+                        <a class="sidebar-link" href="{{ url_for('notepad.index') }}">
+                            <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">List all</span>
+                        </a>
+                    </li>
+                    
 
                     <li class="sidebar-header">
                         Datasets
