@@ -3,6 +3,8 @@ from datetime import datetime, timezone
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from itsdangerous import URLSafeTimedSerializer as Serializer
+from flask import current_app
 from app import db
 
 
@@ -16,6 +18,7 @@ class User(db.Model, UserMixin):
     data_sets = db.relationship('DataSet', backref='user', lazy=True)
     profile = db.relationship('UserProfile', backref='user', uselist=False)
 
+    
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
         if 'password' in kwargs:
