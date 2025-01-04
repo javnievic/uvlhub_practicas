@@ -18,7 +18,7 @@ def index():
     search_query = request.args.get("search", "")
     form = NotepadForm()
     notepads = notepad_service.get_all_by_user(current_user.id)
-    if search_query: 
+    if search_query:
         notepads = [notepad for notepad in notepads if search_query.lower() in notepad.title.lower()]
     return render_template("notepad/index.html", notepads=notepads, form=form, search_query=search_query)
 
