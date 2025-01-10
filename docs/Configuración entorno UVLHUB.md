@@ -36,7 +36,7 @@ Este conjunto de comandos te lleva al directorio `~/.ssh`, donde se encuentran l
 https://docs.uvlhub.io/installation/manual_installation
 
 Pasos para migrar la base de datos: 
-sudo mysql -u root -p
+sudo mysql -u root -p (contra `uvlhubdb_root_password`)
 
 DROP DATABASE IF EXISTS uvlhubdb; 
 DROP DATABASE IF EXISTS uvlhubdb_test; 
