@@ -80,3 +80,101 @@ docker run -it --rm -d -p 8080:80 --name web -v ~/site-content:/usr/share/nginx/
 - **Desarrollo rápido**: Puedes trabajar en tu máquina local y ver los cambios reflejados en tiempo real dentro del contenedor.
 - **Flexibilidad**: Puedes elegir cualquier directorio o archivo de tu sistema de archivos y montarlo en cualquier ubicación del contenedor.
 
+
+## Comandos básicos
+
+
+1. docker run
+
+    Crea y ejecuta un nuevo contenedor a partir de una imagen.
+
+docker run [options] image_name
+
+    Ejemplo:
+
+    docker run -it ubuntu /bin/bash
+
+2. docker ps
+
+    Lista los contenedores en ejecución.
+
+docker ps
+
+    Para ver todos los contenedores (incluidos los detenidos):
+
+    docker ps -a
+
+3. docker stop
+
+    Detiene un contenedor en ejecución.
+
+docker stop container_name_or_id
+
+4. docker start
+
+    Inicia un contenedor detenido.
+
+docker start container_name_or_id
+
+5. docker rm
+
+    Elimina un contenedor detenido.
+
+docker rm container_name_or_id
+
+6. docker rmi
+
+    Elimina una imagen.
+
+docker rmi image_name_or_id
+
+7. docker images
+
+    Lista todas las imágenes locales.
+
+docker images
+
+8. docker exec
+
+    Ejecuta un comando dentro de un contenedor en ejecución.
+
+docker exec -it container_name_or_id command
+
+    Ejemplo:
+
+    docker exec -it my_container /bin/bash
+
+9. docker build
+
+    Construye una imagen desde un Dockerfile.
+
+docker build -t image_name .
+
+10. docker pull
+
+    Descarga una imagen desde Docker Hub.
+
+docker pull image_name
+
+11. docker logs
+
+    Muestra los logs de un contenedor.
+
+docker logs container_name_or_id
+
+12. docker inspect
+
+    Muestra información detallada sobre un contenedor o una imagen.
+
+docker inspect container_name_or_id
+
+13. docker network
+
+    Gestiona las redes de Docker.
+    Crear una red:
+
+docker network create network_name
+
+Ver todas las redes:
+
+docker network ls

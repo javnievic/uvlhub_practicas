@@ -146,3 +146,43 @@ Este comando descargará los cambios de la rama `main` en el remoto `origin` y l
     - **Qué hace**: Crea un nuevo commit que deshace los cambios introducidos por un commit anterior sin alterar el historial existente.
     - **Consecuencia**: No modifica el historial, lo que lo hace seguro para usar en repositorios compartidos o públicos.
     - **Uso típico**: Cuando quieres deshacer cambios pero conservar el historial intacto para mantener un registro completo y transparente de lo que ha ocurrido.
+
+
+
+## Origin/main y origin main
+En Git, los comandos que interactúan con una rama remota (como `origin/main`) requieren una referencia explícita a esa rama. Aquí están algunos comandos comunes que puedes usar **con `origin/main`** y no con `origin main`:
+
+### 1. **`git fetch origin main`**
+
+- **Qué hace**: Descarga los cambios desde la rama `main` del repositorio remoto `origin` pero **sin integrarlos** en la rama local. Solo actualiza la referencia remota.
+
+### 2. **`git pull origin main`**
+
+- **Qué hace**: Combina dos acciones. Primero hace un `git fetch` para traer los cambios de `origin/main`, y luego un `git merge` para integrar esos cambios en la rama local.
+
+### 3. **`git push origin main`**
+
+- **Qué hace**: Sube los cambios desde tu rama local hacia la rama remota `main` en `origin`.
+
+### 4. **`git checkout origin/main`**
+
+- **Qué hace**: Cambia el contexto de tu trabajo a la versión remota de la rama `main` en `origin`. No cambia la rama local, sino que te permite ver el estado de `origin/main` sin afectarla.
+
+### 5. **`git reset --hard origin/main`**
+
+- **Qué hace**: Mueve el puntero de tu rama actual y el estado del working directory para que coincidan con la última versión de `origin/main`. Esto descarta cualquier cambio local.
+
+### 6. **`git merge origin/main`**
+
+- **Qué hace**: Combina los cambios de la rama remota `origin/main` con tu rama actual.
+
+### 7. **`git rebase origin/main`**
+
+- **Qué hace**: Reaplica tus cambios locales en la parte superior de los cambios traídos desde `origin/main`. Esto es útil para mantener un historial de commits más limpio.
+
+### Diferencia entre `origin/main` y `origin main`:
+
+- **`origin main`**: El primer término `origin` se refiere al repositorio remoto y el segundo `main` a la rama dentro de ese repositorio.
+- **`origin/main`**: Este formato con la barra (`/`) se usa cuando estás **consultando o haciendo operaciones sobre las referencias remotas** (como en `git checkout origin/main` o `git log origin/main`).
+
+Si intentas usar algo como `git push origin main`, estás enviando la rama `main` local al repositorio remoto `origin` y no refiriéndote directamente a `origin/main` como un destino explícito.
